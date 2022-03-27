@@ -44,9 +44,9 @@
 		model = "Samsung Galaxy Grand Prime (gprimeltexx)";
 		compatible = "samsung,gprimeltexx", "qcom,msm8916", "lk2nd,device";
 		lk2nd,match-bootloader = "G530FZ*";
-		#include "msm8916-samsung-gprime.dtsi"
         qcom,msm-id = <206 0>;
         qcom,board-id = <0xCE08FF01 2>;
+		#include "msm8916-samsung-gprime.dtsi"
 	};
 
 	j5xlte-chn {

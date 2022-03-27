@@ -3,7 +3,7 @@
 /dts-v1/;
 
 #include <skeleton.dtsi>
-
+#include <lk2nd.h>
 / {
 	// This is used by the bootloader to find the correct DTB
 	qcom,msm-id = <206 0>;

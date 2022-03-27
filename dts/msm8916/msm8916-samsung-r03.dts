@@ -40,6 +40,12 @@
 			i2c-address = <0x25>;
 		};
 	};
+	gprimeltexx {
+		model = "Samsung Galaxy Grand Prime (gprimeltexx)";
+		compatible = "samsung,gprimeltexx", "qcom,msm8916", "lk2nd,device";
+		lk2nd,match-bootloader = "G530FZ*";
+		#include "msm8916-samsung-gprime.dtsi"
+	};
 
 	j5xlte-chn {
 		model = "Samsung Galaxy J5 2016 (SM-J5108)";

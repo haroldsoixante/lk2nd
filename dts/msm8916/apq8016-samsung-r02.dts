@@ -3,45 +3,18 @@
 /dts-v1/;
 
 #include <skeleton.dtsi>
-#include <lk2nd.h>
 
 / {
 	// This is used by the bootloader to find the correct DTB
-	qcom,msm-id = <206 0>;
-	qcom,board-id = <0xCE08FF01 2>;
+	qcom,msm-id = <247 0>;
+	qcom,board-id = <0xF708FF01 2>;
 
-	/*
-	 * A5U is actually rev01 but for some reason the bootloader
-	 * picks the rev02 device tree...
-	 */
-	a5u-eur {
-		model = "Samsung Galaxy A5U (EUR)";
-		compatible = "samsung,a5u-eur", "qcom,msm8916", "lk2nd,device";
-		lk2nd,match-bootloader = "A500FU*";
-
-		qcom,msm-id = <206 0>;
-		qcom,board-id = <0xCE08FF01 2>;
-	};
-
-	gprimeltexx {
-		model = "Samsung Galaxy Grand Prime (gprimeltexx)";
-		compatible = "samsung,gprimeltexx", "qcom,msm8916", "lk2nd,device";
-		lk2nd,match-bootloader = "G530FZ*";
-		#include "msm8916-samsung-gprime.dtsi"
-	};
-
-	/*
-	 * Before building for G357FZ, please comment out all dtbs except
-	 * "$(LOCAL_DIR)/msm8916-samsung-r02.dtb" at './rules.mk'.
-	 * heatqlte doesn't work with multi-dtbs; only goes into "Download mode".
-	 */
-	heatqlte {
-		model = "Samsung Galaxy Ace 4 (SM-G357FZ)";
-		compatible = "samsung,heatqlte", "qcom,msm8916", "lk2nd,device";
-		lk2nd,match-bootloader = "G357FZ*";
-		samsung,muic-reset {
-			i2c-gpio-pins = <2 3>;
-			i2c-address = <0x14>;
-		};
+	// Unfortunately, Samsung uses the same qcom,board-id for all its
+	// APQ8016 devices. Therefore, it will always pick this shared device
+	// tree and we need to do more manual work to differentiate the devices.
+	matissevewifi {
+		model = "Samsung Galaxy Tab 4 10.1 (2015) T533";
+		compatible = "samsung,matissevewifi", "qcom,apq8016", "lk2nd,device";
+		lk2nd,match-bootloader = "T533*";
 	};
 };

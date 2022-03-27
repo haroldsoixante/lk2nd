@@ -3,7 +3,7 @@
 /dts-v1/;
 
 #include <skeleton.dtsi>
-
+#include <lk2nd.h>
 / {
 	// This is used by the bootloader to find the correct DTB
 	qcom,msm-id = <206 0>;
@@ -45,6 +45,8 @@
 		compatible = "samsung,gprimeltexx", "qcom,msm8916", "lk2nd,device";
 		lk2nd,match-bootloader = "G530FZ*";
 		#include "msm8916-samsung-gprime.dtsi"
+        qcom,msm-id = <206 0>;
+        qcom,board-id = <0xCE08FF01 2>;
 	};
 
 	j5xlte-chn {
